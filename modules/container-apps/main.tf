@@ -16,6 +16,10 @@ resource "azurerm_container_app_environment" "main" {
   internal_load_balancer_enabled = true
 
   tags = local.tags
+
+  lifecycle {
+    ignore_changes = [infrastructure_resource_group_name]
+  }
 }
 
 # Managed identity for Container Apps to pull from ACR and read Key Vault

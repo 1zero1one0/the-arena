@@ -1,5 +1,9 @@
 locals {
-  naming_suffix = "${var.project}-${var.environment}-${var.location}-001"
+  location_short = {
+    centralus = "cus"
+    eastus    = "eus"
+  }
+  naming_suffix = "${var.project}-${var.environment}-${local.location_short[var.location]}-001"
   tags = {
     project     = var.project
     environment = var.environment
