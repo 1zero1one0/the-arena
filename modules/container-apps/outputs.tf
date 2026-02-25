@@ -21,3 +21,7 @@ output "managed_identity_client_id" {
 output "managed_identity_principal_id" {
   value = azurerm_user_assigned_identity.container_apps.principal_id
 }
+
+output "admin_app_fqdn" {
+  value = azurerm_container_app.admin.ingress[0].fqdn
+}

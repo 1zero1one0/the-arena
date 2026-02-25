@@ -73,8 +73,22 @@ module "container_apps" {
   environment                = local.environment
   subnet_id                  = module.networking.subnet_ids["container-apps"]
   acr_id                     = var.acr_id
+  acr_login_server           = var.acr_login_server
   key_vault_id               = module.keyvault.key_vault_id
   log_analytics_workspace_id = module.monitoring.log_analytics_workspace_id
+  tunnel_token               = module.cloudflare.tunnel_token
+
+  # Admin app secrets
+  rails_master_key    = var.rails_master_key
+  entra_client_secret = var.entra_client_secret
+  sendlayer_api_key   = var.sendlayer_api_key
+
+  # Admin app config
+  entra_tenant_id        = var.entra_tenant_id
+  entra_tenant_domain    = var.entra_tenant_domain
+  entra_client_id        = var.entra_client_id
+  sendlayer_sender_email = var.sendlayer_sender_email
+  sendlayer_sender_name  = var.sendlayer_sender_name
 }
 
 module "cloudflare" {
@@ -84,4 +98,6 @@ module "cloudflare" {
   environment           = local.environment
   cloudflare_account_id = var.cloudflare_account_id
   cloudflare_zone_id    = var.cloudflare_zone_id
+  admin_hostname        = var.admin_hostname
+  admin_app_fqdn        = module.container_apps.admin_app_fqdn
 }

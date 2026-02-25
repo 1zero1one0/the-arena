@@ -34,3 +34,11 @@ output "tunnel_token" {
 output "tunnel_cname" {
   value = module.cloudflare.tunnel_cname
 }
+
+output "admin_app_fqdn" {
+  value = module.container_apps.admin_app_fqdn
+}
+
+output "admin_url" {
+  value = "https://admin.staging.systrends.net"
+}

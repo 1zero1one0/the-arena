@@ -56,3 +56,48 @@ variable "shared_resource_group_name" {
   type        = string
   default     = "rg-arena-shared-centralus-001"
 }
+
+variable "admin_hostname" {
+  description = "Hostname for the admin app"
+  type        = string
+  default     = "admin.staging.systrends.net"
+}
+
+# Admin app secrets
+variable "rails_master_key" {
+  type      = string
+  sensitive = true
+}
+
+variable "entra_client_secret" {
+  type      = string
+  sensitive = true
+}
+
+variable "sendlayer_api_key" {
+  type      = string
+  sensitive = true
+}
+
+# Admin app config
+variable "entra_tenant_id" {
+  type = string
+}
+
+variable "entra_tenant_domain" {
+  type = string
+}
+
+variable "entra_client_id" {
+  type = string
+}
+
+variable "sendlayer_sender_email" {
+  type    = string
+  default = "noreply@systrends.com"
+}
+
+variable "sendlayer_sender_name" {
+  type    = string
+  default = "The Portal"
+}
