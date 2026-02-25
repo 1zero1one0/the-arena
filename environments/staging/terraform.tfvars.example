@@ -1,0 +1,28 @@
+subscription_id       = ""
+cloudflare_api_token  = ""
+cloudflare_account_id = ""
+cloudflare_zone_id    = ""
+
+# These come from: cd environments/shared && terraform output
+acr_id         = ""
+acr_login_server = ""
+
+shared_resource_group_name = "rg-arena-shared-centralus-001"
+
+# From: cd environments/shared && terraform output -json dns_zone_ids
+dns_zone_ids = {
+  sql      = ""
+  acr      = ""
+  keyvault = ""
+  blob     = ""
+  signalr  = ""
+}
+
+# From: cd environments/shared && terraform output -json dns_zone_names
+dns_zone_names = {
+  sql      = "privatelink.database.windows.net"
+  acr      = "privatelink.azurecr.io"
+  keyvault = "privatelink.vaultcore.azure.net"
+  blob     = "privatelink.blob.core.windows.net"
+  signalr  = "privatelink.signalr.net"
+}

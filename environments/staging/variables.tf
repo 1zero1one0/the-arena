@@ -1,0 +1,58 @@
+variable "subscription_id" {
+  description = "Azure subscription ID"
+  type        = string
+}
+
+variable "location" {
+  description = "Primary Azure region"
+  type        = string
+  default     = "centralus"
+}
+
+variable "project" {
+  description = "Project name used in resource naming"
+  type        = string
+  default     = "arena"
+}
+
+variable "cloudflare_api_token" {
+  description = "Cloudflare API token"
+  type        = string
+  sensitive   = true
+}
+
+variable "cloudflare_account_id" {
+  description = "Cloudflare account ID"
+  type        = string
+}
+
+variable "cloudflare_zone_id" {
+  description = "Cloudflare DNS zone ID"
+  type        = string
+}
+
+variable "acr_id" {
+  description = "ACR resource ID from shared environment"
+  type        = string
+}
+
+variable "acr_login_server" {
+  description = "ACR login server URL from shared environment"
+  type        = string
+}
+
+variable "dns_zone_ids" {
+  description = "Map of private DNS zone IDs from shared environment"
+  type        = map(string)
+}
+
+variable "dns_zone_names" {
+  description = "Map of private DNS zone names from shared environment"
+  type        = map(string)
+}
+
+variable "shared_resource_group_name" {
+  description = "Name of the shared resource group (for DNS zone links)"
+  type        = string
+  default     = "rg-arena-shared-centralus-001"
+}
